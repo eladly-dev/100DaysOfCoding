@@ -1,0 +1,108 @@
+#!/usr/bin/python3
+""" The Hangman Game """
+from random import randint
+
+logo = """
+███████████████████████▀███████████████████████
+█─█─██▀▄─██▄─▀█▄─▄█─▄▄▄▄█▄─▀█▀─▄██▀▄─██▄─▀█▄─▄█
+█─▄─██─▀─███─█▄▀─██─██▄─██─█▄█─███─▀─███─█▄▀─██
+▀▄▀▄▀▄▄▀▄▄▀▄▄▄▀▀▄▄▀▄▄▄▄▄▀▄▄▄▀▄▄▄▀▄▄▀▄▄▀▄▄▄▀▀▄▄▀
+"""
+
+pics = ['''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''',
+'''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''',
+'''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''',
+'''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''',
+'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''',
+'''
+  +---+
+  |   |
+ \O/  |
+  |   |
+ /    |
+      |
+=========''',
+'''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========''']
+
+words = ('ant baboon badger bat bear beaver camel cat clam cobra cougar '
+         'coyote crow deer dog donkey duck eagle ferret fox frog goat '
+         'goose hawk lion lizard llama mole monkey moose mouse mule newt '
+         'otter owl panda parrot pigeon python rabbit ram rat raven '
+         'rhino salmon seal shark sheep skunk sloth snake spider '
+         'stork swan tiger toad trout turkey turtle weasel whale wolf '
+         'wombat zebra ').split()
+
+stage = 0
+guess = 3
+
+def main():
+    """ The entry point """
+    print(logo)
+    input(f"{'Press Enter To Start' : ^48}")
+
+    print(f"{pics[stage]}\n")
+
+    word = words[randint(0, len(words) - 1)]
+    hidden = " _" * (len(word))
+    word = "".join([f" {c}" for c in word])
+    [print(f" {x}", end="") for x in reveal]
+    print("")
+    print(hidden, "\n")
+
+    while True:
+        u = input("Enter letter or command: ")
+        while True:
+            try:
+                u = int(u)
+                if guess == 0:
+                    print("U can't use it anymore")
+                    continue
+                else:
+                    if u < len(word) / 2:
+                        hidden[u
+                
+            
+
+main()
